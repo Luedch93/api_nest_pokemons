@@ -6,7 +6,7 @@ import { insertPokemons, deletePokemons } from './database/actions';
 
 dotenv.config();
 
-(async function(){
+(async () => {
     console.log('Staring Migration!');
     await mongoose.connect(process.env.DB_URI || '', {useNewUrlParser: true});
     console.log('Connected to database', mongoose.connection.db.databaseName);
@@ -21,4 +21,4 @@ dotenv.config();
 
     mongoose.connection.close();
     console.log('Migration Complete');
-})()
+})();

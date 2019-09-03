@@ -23,16 +23,16 @@ const StatSchema: Schema<IStat> = new Schema({
     base_stat: Number,
     effort: Number,
     stat: {
-        name: String
-    }
+        name: String,
+    },
 });
 
 const TypeSchema: Schema<IType> = new Schema({
     slot: Number,
     type: {
-        name: String
-    }
-})
+        name: String,
+    },
+});
 
 const PokemonSchema: Schema<IPokemon> = new Schema({
     name: {type: String, required: true},
@@ -46,10 +46,10 @@ const PokemonSchema: Schema<IPokemon> = new Schema({
         front_default: String,
         front_female: String,
         front_shiny: String,
-        front_shiny_female: String
+        front_shiny_female: String,
     },
     stats: [StatSchema],
-    types: [TypeSchema]
+    types: [TypeSchema],
 });
 
 export const Pokemon = mongoose.model('Pokemon', PokemonSchema);
