@@ -63,6 +63,7 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
+    "coveragePathIgnorePatterns": ["/src/migration-script"],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
