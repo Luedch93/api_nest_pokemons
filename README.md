@@ -20,7 +20,14 @@ $ yarn install
 First you have to run the migration script, be sure that your mongo server is running
 
 ```bash
+# create the database
+$ yarn migrate
+```
+
+This command will create a database called *pokemondb* in your mongo server
+
 ## Running the app
+```bash
 # build the app
 $ yarn build
 
