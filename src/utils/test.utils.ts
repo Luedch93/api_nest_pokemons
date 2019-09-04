@@ -59,7 +59,7 @@ export async function initTestDB(): Promise<void> {
           name: '',
         },
       },
-    ]
+    ],
   });
   await mongoose.disconnect();
 }
