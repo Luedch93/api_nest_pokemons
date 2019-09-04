@@ -9,6 +9,8 @@ A API project made with nestJs that work with a pokemon database
 * NPM 6.4
 * Yarn 1.15
 
+You have to rename the file *sampleenvfile* to *.env* and you can change the url and the bane of both the database and the test database.
+
 ## Installation
 
 ```bash
@@ -45,5 +47,5 @@ $ yarn start:prod
 $ yarn test
 
 # test coverage
-$ npm run test:cov
+$ yarn test:cov
 ```

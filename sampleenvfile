@@ -1,0 +1,4 @@
+DB_URI=mongodb://localhost:27017/pokemondb
+API_URI=https://pokeapi.co/api/v2
+
+DB_TEST=mongodb://localhost:27017/pokemondb_test
