@@ -21,21 +21,24 @@ describe('App Service', () => {
     await mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
   });
 
-  afterAll(async () => {
+  afterAll(async (done) => {
     await clearTestDB();
+    done();
   });
 
-  it('should get all pokemons', async () => {
+  it('should get all pokemons', async (done) => {
     const pokemons = await service.getPokemons();
     expect(pokemons.length).toBeGreaterThanOrEqual(0);
+    done();
   });
 
-  it('should get a pokemon', async () => {
+  it('should get a pokemon', async (done) => {
     const pokemon = await service.getPokemonDetail('testPokemon');
     expect(pokemon.name).toBe('testPokemon');
+    done();
   });
 
-  it('should create a favorite', async () => {
+  it('should create a favorite', async (done) => {
     const favorite = {
       name: 'test',
       pokemonId: '5d6e8b9ed3f0595b1c620c36',
@@ -43,5 +46,6 @@ describe('App Service', () => {
     const savedFavorite = await service.saveFavorite(favorite);
     expect(savedFavorite.name).toBe('test');
     expect(savedFavorite._id).toBeDefined();
+    done();
   });
 });
