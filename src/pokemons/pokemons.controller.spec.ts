@@ -20,29 +20,32 @@ describe('Pokemons Controller', () => {
     controller = module.get<PokemonsController>(PokemonsController);
   });
 
-  it('should be defined', () => {
+  it('should be defined', (done) => {
     expect(controller).toBeDefined();
+    done();
   });
 
-  it('should return an array of pokemons', async () => {
+  it('should return an array of pokemons', async (done) => {
     const result = new Promise<any[]>((resolve, reject) => {
       resolve([{ name: 'pikachu' }, { name: 'raichu' }]);
     });
     jest.spyOn(service, 'getPokemons').mockImplementation(() => result);
 
     expect(await controller.getPokemons()).toBe(await result);
+    done();
   });
 
-  it('should return a pokemon object', async () => {
+  it('should return a pokemon object', async (done) => {
     const pokemon = new Promise<any>((resolve, reject) => {
       resolve({ name: 'meowth' });
     });
     jest.spyOn(service, 'getPokemonDetail').mockImplementation(() => pokemon);
 
     expect(await controller.getPokemon('mewoth')).toBe(await pokemon);
+    done();
   });
 
-  it('should return a image', () => {
+  it('should return a image', (done) => {
     const pokemon = 'charmander';
     const imageType = 'front_default';
 
@@ -51,6 +54,7 @@ describe('Pokemons Controller', () => {
       mockRequest({ pokemon, imageType }),
     );
     expect(result).toBe(undefined);
+    done();
   });
 
   it('should save a favorite', async () => {

@@ -26,7 +26,6 @@ export function mockResponse(): any {
 }
 
 export async function initTestDB(): Promise<void> {
-  console.log('Creating a test Database');
   await mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
   await mongoose.connection.dropDatabase();
   await PokemonModel.create({
@@ -67,6 +66,5 @@ export async function initTestDB(): Promise<void> {
 export async function clearTestDB() {
   await mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
   await mongoose.connection.dropDatabase();
-  console.log('Deleting the test Database');
   await mongoose.disconnect();
 }
