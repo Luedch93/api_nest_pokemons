@@ -18,7 +18,9 @@ export async function insertPokemons(results: any[], saveImagesFlag = false) {
       types,
     } = await getPokemonDetail(p.name);
     console.log('Catched pokemon', name);
-    pokemonArray.push({ name, sprites, height, weight, stats, types });
+    let pokemon = { name, sprites, height, weight, stats, types };
+    pokemon.sprites = renameSprites(pokemon.sprites, pokemon.name);
+    pokemonArray.push(pokemon);
     if (saveImagesFlag) {
       saveImages({ name, sprites });
     }
@@ -42,4 +44,13 @@ async function saveImages({ name, sprites }: { sprites: any; name: string }) {
       saveImage(sprites[spriteType], name, spriteType);
     }
   }
+}
+
+function renameSprites(sprites, name) {
+  const newSprites = Object.assign({});
+  Object.keys(sprites).forEach((type: string) => {
+    newSprites[type] = `/images/${name}/${type}.png`;
+  });
+  console.log(newSprites);
+  return newSprites;
 }

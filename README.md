@@ -50,7 +50,6 @@ By default the app will run on port **3000** Here is the list of all the endpoin
 GET [http://localhost:3000/pokemons](http://localhost:3000/pokemons)
 
 **Get one pokemon**
-http://localhost:3000/pokemons/:nameOfPokemon
 GET [http://localhost:3000/pokemons/pikachu](http://localhost:3000/pokemons/pikachu)
 
 **Get image of pokemon**
@@ -64,6 +63,7 @@ You can use this types of image:
 * front_female
 * front_shiny
 * front_shiny_female
+
 [http://localhost:3000/pokemons/mankey/front_default](http://localhost:3000/pokemons/mankey/front_default)
 
 ## Test
